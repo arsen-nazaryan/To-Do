@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #2d3436;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#2d3436), color-stop(90%, #d3d3d3));
+    background-image: linear-gradient(180deg, #2d3436 0%, #d3d3d3 90%);
+    background-repeat: no-repeat;
+    font-size: 18px;
+}
+
+.to-do_list h1 {
+    font-size: 35px;
+    height: 85px;
+    background-color: #000000;
+    color: #f3ca20;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.to-do_list h1 span {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.to-do_list h1 span a {
+    color: #f3ca20;
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'Syne Mono', monospace;
+    margin: 6px;
+    -webkit-transition: color .4s ease-in;
+    transition: color .4s ease-in;
+}
+
+.to-do_list h1 span a:hover {
+    color: #D3D3D3;
+}
+
+.to-do_list #root {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 430px;
+    margin: auto;
+}
+
+.to-do_list #root div {
+    width: 100%;
+    background-color: #f3ca20;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-family: 'Syne Mono', monospace;
+}
+
+.to-do_list #root form {
+    height: 55px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.to-do_list #root form input,
+.to-do_list #root form button {
+    border: none;
+    outline: none;
+}
+
+.to-do_list #root form input {
+    height: 100%;
+    width: 100%;
+    background-color: #f3ca20;
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
+    color: #000;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.to-do_list #root form button {
+    width: 105px;
+    background-color: #000;
+    border-top: 2px solid #f3ca20;
+    border-bottom: 2px solid #f3ca20;
+    color: #f3ca20;
+    font-size: 18px;
+    letter-spacing: 1px;
+    -webkit-transition: color .4s ease-in;
+    transition: color .4s ease-in;
+}
+
+.to-do_list #root footer button:hover,
+.to-do_list #root form button:hover {
+    color: #D3D3D3;
+}
+
+.to-do_list #root label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    min-height: 45px;
+    color: #000;
+    margin-left: 10px;
+    padding-left: 35px;
+    padding-right: 10px;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.to-do_list #root footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 35px;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.to-do_list button {
+    cursor: pointer;
+}
+
+.to-do_list #root footer button {
+    background-color: #000000;
+    color: #f3ca20;
+    border: none;
+    height: 100%;
+    width: 135px;
+    border-top: 1px solid #f3ca20;
+    border-bottom: 1px solid #f3ca20;
+    outline: none;
+    border-radius: unset;
+    letter-spacing: .5px;
+    -webkit-transition: color .4s ease-in;
+    transition: color .4s ease-in;
+}
+
+label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: #F3CA20;
+    border: 1px solid black;
+}
+
+label:hover input ~ .checkmark {
+    background-color: #BBBDBE;
+}
+
+label input:checked ~ .checkmark {
+    background-color: #000;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+label .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 4px;
+    height: 10px;
+    border: solid #F3CA20;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+@media screen and (max-width: 767px) {
+    .to-do_list #root {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .to-do_list h1 {
+        font-size: 26px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .to-do_list h1 {
+        font-size: 22px;
+    }
+}
